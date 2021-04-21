@@ -1,1 +1,3 @@
-export class Apple { }
+export class Apple {
+    price = 0.5;
+}

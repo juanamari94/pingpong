@@ -1,12 +1,12 @@
-import {Apple} from "./Apple";
-
 export class ShoppingCart {
 
-    add(apple: Apple) {
-        return;
+    counter = 0;
+
+    add(item: any) {
+        this.counter += item.price;
     }
 
     checkout() {
-        return 0.5;
+        return this.counter;
     }
 }
