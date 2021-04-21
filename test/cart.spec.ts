@@ -5,7 +5,7 @@ describe('Cart', () => {
 
     it('Total for one Apple is 50 cents', () => {
         const cart = new ShoppingCart();
-        const apple = new Item('Apple', 0.5);
+        const apple = new Item('Apple', 0.5, 1);
         cart.add(apple);
         const total = cart.checkout();
         expect(total).toEqual(0.5);
@@ -13,7 +13,7 @@ describe('Cart', () => {
 
     it('Total for one Banana is 1.0 dollar', () => {
         const cart = new ShoppingCart();
-        const banana = new Item('Banana', 1.0);
+        const banana = new Item('Banana', 1.0, 1);
         cart.add(banana);
         const total = cart.checkout();
         expect(total).toEqual(1.0);
@@ -21,9 +21,8 @@ describe('Cart', () => {
 
     it('Total for two Apples is 1.0 dollar', () => {
         const cart = new ShoppingCart();
-        const apple = new Item('Apple', 0.5);
-        cart.add(apple);
-        cart.add(apple);
+        const apples = new Item('Apple', 0.5, 2);
+        cart.add(apples);
         const total = cart.checkout();
         expect(total).toEqual(1.0);
     });
