@@ -26,4 +26,14 @@ describe('Cart', () => {
         const total = cart.checkout();
         expect(total).toEqual(1.0);
     });
+
+    it('Total for one Banana is 1.0 dollar', () => {
+        const cart = new ShoppingCart();
+        const apples = new Item('Apple', 0.5, 2);
+        const banana = new Item('Banana', 1.0, 1);
+        cart.add(banana);
+        cart.add(apples);
+        const total = cart.checkout();
+        expect(total).toEqual(2.0);
+    });
 });
