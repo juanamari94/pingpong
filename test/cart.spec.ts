@@ -18,4 +18,13 @@ describe('Cart', () => {
         const total = cart.checkout();
         expect(total).toEqual(1.0);
     });
+
+    it('Total for two Apples is 1.0 dollar', () => {
+        const cart = new ShoppingCart();
+        const apple = new Item('Apple', 0.5);
+        cart.add(apple);
+        cart.add(apple);
+        const total = cart.checkout();
+        expect(total).toEqual(1.0);
+    });
 });
