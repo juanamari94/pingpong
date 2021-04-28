@@ -97,6 +97,6 @@ describe('Cart', () => {
             cart.add(item);
         }
         const total = cart.checkout();
-        expect(total).toEqual(9.4);
+        expect(total).toEqual(8.7);
     });
 });
