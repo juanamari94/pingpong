@@ -61,6 +61,14 @@ describe('Cart', () => {
         expect(total).toEqual(3.0);
     });
 
+    it('Total for four Bananas is 3.5 dollars', () => {
+        const cart = new ShoppingCart();
+        const bananas = new Item('Banana', 1.0, 4);
+        cart.add(bananas);
+        const total = cart.checkout();
+        expect(total).toEqual(3.5);
+    });
+
     it('Total for 3 apples and 3 bananas unordered should always be 4.2 dollars', () => {
         const items = [
             new Item('Apple', 0.5, 1),
