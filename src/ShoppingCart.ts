@@ -15,6 +15,8 @@ export class ShoppingCart {
             const {quantity, item} = cartDescription;
             if (itemName === 'Apple' && quantity % 3 === 0) {
                 this.total += 1.2 * (quantity / 3);
+            } else if (itemName === 'Banana' && quantity % 4 === 0) {
+                this.total += 3.5 * (quantity / 4);
             } else {
                 this.total += item.price * quantity;
             }

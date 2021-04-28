@@ -85,4 +85,18 @@ describe('Cart', () => {
         const total = cart.checkout();
         expect(total).toEqual(4.2);
     });
+
+    it('Total for 3 apples (special), 4 bananas (special) and 2 carrots should be 9.4 dollars', () => {
+        const items = [
+            new Item('Apple', 0.5, 3),
+            new Item('Banana', 1, 4),
+            new Item('Carrots', 2, 2),
+        ]
+        const cart = new ShoppingCart();
+        for (const item of items) {
+            cart.add(item);
+        }
+        const total = cart.checkout();
+        expect(total).toEqual(9.4);
+    });
 });
