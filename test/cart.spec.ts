@@ -99,4 +99,17 @@ describe('Cart', () => {
         const total = cart.checkout();
         expect(total).toEqual(8.7);
     });
+
+    it('Total for 4 apples on special for 1.6 dollars', () => {
+        const items = [
+            new Item('Apple', 0.5, 4), //on special for 1.6
+            new Item('Apple', 0.5, 3), //1.5
+        ]
+        const cart = new ShoppingCart();
+        for (const item of items) {
+            cart.add(item);
+        }
+        const total = cart.checkout();
+        expect(total).toEqual(1.6 + 1.5);
+    });
 });
