@@ -45,7 +45,7 @@ describe('Cart', () => {
         expect(total).toEqual(1.2);
     });
 
-    it('Total for three Apples is 1.2 dollars', () => {
+    it('Total for six Apples is 2.4 dollars', () => {
         const cart = new ShoppingCart();
         const apples = new Item('Apple', 0.5, 6);
         cart.add(apples);
@@ -59,5 +59,22 @@ describe('Cart', () => {
         cart.add(bananas);
         const total = cart.checkout();
         expect(total).toEqual(3.0);
+    });
+
+    it('Total for 3 apples and 3 bananas unordered should always be 4.2 dollars', () => {
+        const items = [
+            new Item('Apple', 0.5, 1),
+            new Item('Apple', 0.5, 1),
+            new Item('Apple', 0.5, 1),
+            new Item('Banana', 1.0, 1),
+            new Item('Banana', 1.0, 1),
+            new Item('Banana', 1.0, 1)
+        ]
+        const cart = new ShoppingCart();
+        for (const item of items) {
+            cart.add(item);
+        }
+        const total = cart.checkout();
+        expect(total).toEqual(4.2);
     });
 });
